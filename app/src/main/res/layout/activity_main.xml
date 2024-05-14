@@ -22,10 +22,11 @@
         android:layout_height="wrap_content"
         android:text="@string/logout" />
 
-    <CalendarView
-        android:id="@+id/calendarView"
+    <Button
+        android:id="@+id/goCalendar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="Ir al calendario"/>
        
 
 </LinearLayout>

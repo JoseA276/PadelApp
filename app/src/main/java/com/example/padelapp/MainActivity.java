@@ -7,12 +7,10 @@ import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
@@ -20,67 +18,48 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivity {
     FirebaseAuth auth;
     Button button;
+    Button calendarButton;
     TextView textView;
     FirebaseUser user;
-    CalendarView calendarView;
-    Calendar calendar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        calendarView = findViewById(R.id.calendarView);
-        calendar = Calendar.getInstance();
-        setDate(1,1,2024);
-        getDate();
-        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-            @Override
-            public void onSelectedDayChange(@NonNull CalendarView view, int dayOfMonth, int month, int year) {
-                Toast.makeText(MainActivity.this, dayOfMonth + "/" + month+1  +"/" + year, Toast.LENGTH_SHORT).show();
-            }
-        });
 
-
-        auth = FirebaseAuth.getInstance();
         button = findViewById(R.id.logout);
         textView = findViewById(R.id.user_details);
+        calendarButton = findViewById(R.id.goCalendar);
+        //Inicializar Firebase Auth
+        auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
-        if (user == null){
+
+
+        // Verificar si el usuario ha iniciado sesión
+        if (user == null) {
+            // Redirigir a la actividad de inicio de sesión si el usuario no ha iniciado sesión
             Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
             startActivity(intent);
             finish();
-        }else{
+        } else {
+            // Mostrar el correo electrónico del usuario
             textView.setText(user.getEmail());
         }
 
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-                startActivity(intent);
-                finish();
-            }
+        // Establecer listener de clic en el botón de cerrar sesión
+        button.setOnClickListener(v -> {
+            // Cerrar sesión y redirigir a la actividad de inicio de sesión
+            FirebaseAuth.getInstance().signOut();
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(intent);
+            finish();
         });
 
+        // Establecer listener de clic en el botón Ir al calendario
+        calendarButton.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, CalendarActivity.class);
+            startActivity(intent);
+        });
 
-
-    }
-
-    public void getDate(){
-        long date = calendarView.getDate();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yy", Locale.getDefault());
-        calendar.setTimeInMillis(date);
-        String selected_date = simpleDateFormat.format(calendar.getTime());
-        Toast.makeText(this, selected_date, Toast.LENGTH_SHORT).show();
-
-
-    }
-    public void setDate(int day, int month, int year){
-        calendar.set(Calendar.YEAR, year);
-        calendar.set(Calendar.MONTH, month-1);
-        calendar.set(Calendar.DAY_OF_MONTH, day);
-
-        long milli = calendar.getTimeInMillis();
-        calendarView.setDate(milli);
     }
 }
