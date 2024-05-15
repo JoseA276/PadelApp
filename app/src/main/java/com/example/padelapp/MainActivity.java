@@ -2,18 +2,20 @@ package com.example.padelapp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+
 import android.widget.Button;
-import android.widget.CalendarView;
+
 import android.widget.TextView;
-import android.widget.Toast;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.NavigationUI;
+
+import com.example.padelapp.databinding.ActivityMainBinding;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Locale;
+
 
 public class MainActivity extends AppCompatActivity {
     FirebaseAuth auth;
@@ -21,13 +23,19 @@ public class MainActivity extends AppCompatActivity {
     Button calendarButton;
     TextView textView;
     FirebaseUser user;
+    ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView((binding = ActivityMainBinding.inflate(getLayoutInflater())).getRoot());
+        NavController navController = ((NavHostFragment)getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment)).getNavController();
+        NavigationUI.setupWithNavController(binding.bottomNavView, navController);
 
-        button = findViewById(R.id.logout);
+
+
+        //------------------------------------
+        /*button = findViewById(R.id.logout);
         textView = findViewById(R.id.user_details);
         calendarButton = findViewById(R.id.goCalendar);
         //Inicializar Firebase Auth
@@ -59,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         calendarButton.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, CalendarActivity.class);
             startActivity(intent);
-        });
+        });*/
 
     }
 }
