@@ -7,7 +7,7 @@
 
     android:padding="15dp"
     android:gravity="center"
-    tools:context=".RegisterActivity">
+    tools:context=".Login.RegisterActivity">
 
     <TextView
         android:id="@+id/registerTitle"

@@ -4,23 +4,20 @@
     <item
         android:id="@+id/noticiasFragment"
         android:icon="@drawable/baseline_newspaper"
-        android:title="Noticias" />
+        android:title="@string/noticias" />
 
     <item
         android:id="@+id/calendarFragment"
         android:icon="@drawable/baseline_calendar"
-        android:title="Calendario"/>
+        android:title="@string/calendario"/>
     <item
         android:id="@+id/torneosFragment"
         android:icon="@drawable/baseline_window"
-        android:title="Torneos"/>
+        android:title="@string/torneos"/>
     <item
         android:id="@+id/rankingFragment"
         android:icon="@drawable/baseline_checklist"
-        android:title="Ranking"/>
-    <item
-        android:id="@+id/perfilFragment"
-        android:icon="@drawable/baseline_person"
-        android:title="Perfil"/>
+        android:title="@string/ranking"/>
+
 
 </menu>

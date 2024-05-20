@@ -30,4 +30,9 @@
         android:name="com.example.padelapp.PerfilFragment"
         android:label="fragment_perfil"
         tools:layout="@layout/fragment_perfil" />
+    <fragment
+        android:id="@+id/newNewsFragment"
+        android:name="com.example.padelapp.NewNewsFragment"
+        android:label="fragment_new_news"
+        tools:layout="@layout/fragment_new_news" />
 </navigation>

@@ -9,4 +9,8 @@
     <string name="click_to_login">Click to login</string>
     <string name="click_to_register">Click to register</string>
     <string name="logout">Logout</string>
+    <string name="noticias">Noticias</string>
+    <string name="calendario">Calendario</string>
+    <string name="torneos">Torneos</string>
+    <string name="ranking">Ranking</string>
 </resources>

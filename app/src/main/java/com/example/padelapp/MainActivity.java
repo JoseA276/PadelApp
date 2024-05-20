@@ -3,16 +3,24 @@ package com.example.padelapp;
 import android.content.Intent;
 import android.os.Bundle;
 
+import android.view.MenuItem;
 import android.widget.Button;
 
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.padelapp.databinding.ActivityMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -24,15 +32,25 @@ public class MainActivity extends AppCompatActivity {
     TextView textView;
     FirebaseUser user;
     ActivityMainBinding binding;
-
+NavigationView navigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView((binding = ActivityMainBinding.inflate(getLayoutInflater())).getRoot());
+        setSupportActionBar(binding.toolbar);
+
+        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
+                // Top-level destinations:
+                R.id.noticiasFragment, R.id.rankingFragment, R.id.torneosFragment, R.id.calendarFragment)
+                .setOpenableLayout(binding.drawerLayout)
+                .build();
+
+
+
         NavController navController = ((NavHostFragment)getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment)).getNavController();
         NavigationUI.setupWithNavController(binding.bottomNavView, navController);
-
-
+        NavigationUI.setupWithNavController(binding.drawerNavView, navController);
+        NavigationUI.setupWithNavController(binding.toolbar, navController, appBarConfiguration);
 
         //------------------------------------
         /*button = findViewById(R.id.logout);
