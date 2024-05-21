@@ -18,6 +18,10 @@
         android:id="@+id/rankingFragment"
         android:icon="@drawable/baseline_checklist"
         android:title="@string/ranking"/>
+    <item
+        android:id="@+id/uploadActivity"
+        android:icon="@drawable/ic_add"
+        android:title="@string/upload"/>
 
 
 </menu>
