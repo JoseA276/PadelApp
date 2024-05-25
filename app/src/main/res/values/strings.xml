@@ -14,4 +14,13 @@
     <string name="torneos">Torneos</string>
     <string name="ranking">Ranking</string>
     <string name="upload">Upload</string>
+    <string name="guardar">Guardar</string>
+    <string name="nombre_pareja">Nombre Pareja</string>
+    <string name="posicion">Posición</string>
+    <string name="naciemiento">Naciemiento</string>
+    <string name="altura">Altura</string>
+    <string name="apellido">Apellido</string>
+    <string name="nombre">Nombre</string>
+    <string name="guardarJugador">Guardar Jugador</string>
+    <string name="add_item" />
 </resources>

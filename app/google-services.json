@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "241028971493",
+    "firebase_url": "https://padelapp-f7de8-default-rtdb.europe-west1.firebasedatabase.app",
     "project_id": "padelapp-f7de8",
     "storage_bucket": "padelapp-f7de8.appspot.com"
   },
@@ -12,7 +13,12 @@
           "package_name": "com.example.padelapp"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "241028971493-qhl3uo94t1sa0f3i0t750doese434f22.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyAcfFxSsrsm-KL1fTIolCCaazXVGMTFrjg"
@@ -20,7 +26,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "241028971493-qhl3uo94t1sa0f3i0t750doese434f22.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

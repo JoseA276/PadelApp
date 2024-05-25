@@ -15,6 +15,7 @@
         android:layout_marginStart="20dp"
         app:cardCornerRadius="30dp"
         app:cardElevation="20dp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -25,55 +26,90 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Upload Data"
+                android:text="@string/guardarJugador"
                 android:textSize="30sp"
                 android:textAlignment="center"
                 android:textColor="@color/lavender"/>
+
             <ImageView
+                android:id="@+id/subirImagen"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:src="@drawable/uploadimg"
-                android:id="@+id/uploadImage"
                 android:layout_marginTop="10dp"
-                android:scaleType="fitXY"/>
+                android:scaleType="fitXY"
+                android:src="@drawable/uploadimg" />
+
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:id="@+id/uploadTopic"
+                android:id="@+id/nombre"
                 android:background="@drawable/lavender_border"
                 android:layout_marginTop="20dp"
                 android:padding="16dp"
-                android:hint="Enter topic name"
+                android:hint="@string/nombre"
                 android:gravity="start|center_vertical"
                 android:textColor="@color/lavender"/>
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:id="@+id/uploadDesc"
+                android:id="@+id/apellido"
                 android:background="@drawable/lavender_border"
                 android:layout_marginTop="20dp"
                 android:padding="16dp"
-                android:hint="Enter description"
+                android:hint="@string/apellido"
                 android:gravity="start|center_vertical"
                 android:textColor="@color/lavender"/>
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:id="@+id/uploadLang"
+                android:id="@+id/altura"
                 android:background="@drawable/lavender_border"
                 android:layout_marginTop="20dp"
                 android:padding="16dp"
-                android:hint="Enter language"
+                android:hint="@string/altura"
+                android:gravity="start|center_vertical"
+                android:textColor="@color/lavender"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:id="@+id/nacimiento"
+                android:background="@drawable/lavender_border"
+                android:layout_marginTop="20dp"
+                android:padding="16dp"
+                android:hint="@string/naciemiento"
+                android:gravity="start|center_vertical"
+                android:textColor="@color/lavender"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:id="@+id/posicion"
+                android:background="@drawable/lavender_border"
+                android:layout_marginTop="20dp"
+                android:padding="16dp"
+                android:hint="@string/posicion"
+                android:gravity="start|center_vertical"
+                android:textColor="@color/lavender"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:id="@+id/pareja"
+                android:background="@drawable/lavender_border"
+                android:layout_marginTop="20dp"
+                android:padding="16dp"
+                android:hint="@string/nombre_pareja"
                 android:gravity="start|center_vertical"
                 android:textColor="@color/lavender"/>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:text="Save"
-                android:id="@+id/saveButton"
+                android:text="@string/guardar"
+                android:id="@+id/guardarButton"
                 android:textSize="18sp"
                 android:layout_marginTop="20dp"
                 app:cornerRadius = "20dp"/>
+
         </LinearLayout>
+
+
     </androidx.cardview.widget.CardView>
 </ScrollView>

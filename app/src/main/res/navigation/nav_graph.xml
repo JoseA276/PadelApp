@@ -21,11 +21,6 @@
         android:label="fragment_torneos"
         tools:layout="@layout/fragment_torneos" />
     <fragment
-        android:id="@+id/rankingFragment"
-        android:name="com.example.padelapp.RankingFragment"
-        android:label="fragment_ranking"
-        tools:layout="@layout/fragment_ranking" />
-    <fragment
         android:id="@+id/perfilFragment"
         android:name="com.example.padelapp.PerfilFragment"
         android:label="fragment_perfil"
@@ -35,4 +30,9 @@
         android:name="com.example.padelapp.UploadActivity"
         android:label="activity_upload"
         tools:layout="@layout/activity_upload" />
+    <activity
+        android:id="@+id/rankingActivity"
+        android:name="com.example.padelapp.RankingActivity"
+        android:label="activity_ranking"
+        tools:layout="@layout/activity_ranking" />
 </navigation>

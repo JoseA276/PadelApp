@@ -7,13 +7,13 @@ public class Player {
     private String nombre;
     private String apellido;
     private double altura;
-    private Date nacimiento;
+    private String nacimiento;
     private String posicion;
     private String pareja;
 
     public Player(){}
 
-    public Player(String nombre, String apellido, double altura, Date nacimiento, String posicion, String pareja) {
+    public Player(String nombre, String apellido, double altura, String nacimiento, String posicion, String pareja) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.altura = altura;
@@ -46,11 +46,11 @@ public class Player {
         this.altura = altura;
     }
 
-    public Date getNacimiento() {
+    public String getNacimiento() {
         return nacimiento;
     }
 
-    public void setNacimiento(Date nacimiento) {
+    public void setNacimiento(String nacimiento) {
         this.nacimiento = nacimiento;
     }
 

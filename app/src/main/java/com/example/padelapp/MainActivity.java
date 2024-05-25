@@ -12,7 +12,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.padelapp.databinding.ActivityMainBinding;
-
+import com.google.firebase.FirebaseApp;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -23,11 +23,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView((binding = ActivityMainBinding.inflate(getLayoutInflater())).getRoot());
-        setSupportActionBar(binding.toolbar);
+
 
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
                 // Top-level destinations:
-                R.id.noticiasFragment, R.id.rankingFragment, R.id.torneosFragment, R.id.calendarFragment, R.id.uploadActivity)
+                R.id.noticiasFragment, R.id.rankingActivity, R.id.torneosFragment, R.id.calendarFragment, R.id.uploadActivity)
                 .setOpenableLayout(binding.drawerLayout)
                 .build();
 
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = ((NavHostFragment)getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment)).getNavController();
         NavigationUI.setupWithNavController(binding.bottomNavView, navController);
         NavigationUI.setupWithNavController(binding.drawerNavView, navController);
-        NavigationUI.setupWithNavController(binding.toolbar, navController, appBarConfiguration);
-
+        NavigationUI.setupWithNavController(binding.toolbar ,navController, appBarConfiguration);
+        FirebaseApp.initializeApp(this);
     }
 }
