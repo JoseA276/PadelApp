@@ -23,10 +23,10 @@
             android:name=".UploadActivity"
             android:exported="false" />
         <activity
-            android:name=".Login.RegisterActivity"
+            android:name=".RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".Login.LoginActivity"
+            android:name=".LoginActivity"
             android:exported="true" />
         <activity
             android:name=".MainActivity"

@@ -1,4 +1,4 @@
-package com.example.padelapp.Login;
+package com.example.padelapp;
 
 
 import android.content.Intent;
@@ -18,8 +18,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 
-import com.example.padelapp.MainActivity;
-import com.example.padelapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
