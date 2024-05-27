@@ -10,16 +10,18 @@ public class Player {
     private String nacimiento;
     private String posicion;
     private String pareja;
+    private String imagePlayer;
 
     public Player(){}
 
-    public Player(String nombre, String apellido, double altura, String nacimiento, String posicion, String pareja) {
+    public Player(String nombre, String apellido, double altura, String nacimiento, String posicion, String pareja, String imagePlayer) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.altura = altura;
         this.nacimiento = nacimiento;
         this.posicion = posicion;
         this.pareja = pareja;
+        this.imagePlayer=imagePlayer;
     }
 
     public String getNombre() {
@@ -68,6 +70,14 @@ public class Player {
 
     public void setPareja(String pareja) {
         this.pareja = pareja;
+    }
+
+    public String getImagePlayer() {
+        return imagePlayer;
+    }
+
+    public void setImagePlayer(String imagePlayer) {
+        this.imagePlayer = imagePlayer;
     }
 
     @Override

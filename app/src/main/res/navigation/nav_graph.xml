@@ -50,4 +50,9 @@
         android:name="com.example.padelapp.RegisterActivity"
         android:label="activity_register"
         tools:layout="@layout/activity_register" />
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.padelapp.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" />
 </navigation>

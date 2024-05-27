@@ -22,5 +22,6 @@
     <string name="apellido">Apellido</string>
     <string name="nombre">Nombre</string>
     <string name="guardarJugador">Guardar Jugador</string>
-    <string name="add_item" />
+    <string name="detalle_jugador">Detalle Jugador</string>
+    <string name="add_item">Add Item</string>
 </resources>

@@ -38,7 +38,7 @@ public class UploadActivity extends AppCompatActivity {
     ImageView subirImagen;
     Button guardarBoton;
     EditText nombre, apellido, altura, nacimiento,posicion,pareja;
-    String imagenURL;
+    String imageJugador;
     Uri uri;
 
     @Override
@@ -110,7 +110,7 @@ public class UploadActivity extends AppCompatActivity {
                 Task<Uri> uriTask = taskSnapshot.getStorage().getDownloadUrl();
                 while (!uriTask.isComplete());
                 Uri urlImage = uriTask.getResult();
-                imagenURL = urlImage.toString();
+                imageJugador = urlImage.toString();
                 uploadData();
                 dialog.dismiss();
             }
@@ -131,7 +131,7 @@ public class UploadActivity extends AppCompatActivity {
         String posicionJugador = posicion.getText().toString();
         String parejaJugador = pareja.getText().toString();
 
-        Player player = new Player(nombreJugador, apellidoJugador, alturaJugador, nacimientoJugador, posicionJugador, parejaJugador);
+        Player player = new Player(nombreJugador, apellidoJugador, alturaJugador, nacimientoJugador, posicionJugador, parejaJugador, imageJugador);
 
         //We are changing the child from title to currentDate,
         // because we will be updating title as well and it may affect child value.
