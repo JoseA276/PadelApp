@@ -40,8 +40,8 @@
         <TextView
             android:layout_width="80dp"
             android:layout_height="30dp"
-            android:id="@+id/recPareja"
-            android:text="pareja"
+            android:id="@+id/recEdad"
+            android:text="@string/edad"
             android:layout_toEndOf="@id/recNombre"
             android:layout_marginTop="20dp"
             android:layout_marginStart="90dp"

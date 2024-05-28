@@ -36,19 +36,28 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        Player player = playerList.get(position);
+
         Glide.with(context).load(playerList.get(position).getImagePlayer()).into(holder.recImage);
         holder.recNombre.setText(playerList.get(position).getNombre());
         holder.recApellido.setText(playerList.get(position).getApellido());
-        holder.recPareja.setText(playerList.get(position).getPareja());
+
+
+
+
+
 
         holder.recCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String edad = String.valueOf(player.getEdad());
+                Integer.parseInt(edad);
+                holder.recEdad.setText(edad);
                 Intent intent = new Intent(context, DetailActivity.class);
                 intent.putExtra("Image", playerList.get(holder.getAdapterPosition()).getImagePlayer());
                 intent.putExtra("Apellido", playerList.get(holder.getAdapterPosition()).getApellido());
                 intent.putExtra("Nombre", playerList.get(holder.getAdapterPosition()).getNombre());
-                intent.putExtra("Pareja", playerList.get(holder.getAdapterPosition()).getPareja());
+                intent.putExtra("Edad", edad);
                 context.startActivity(intent);
 
 
@@ -67,7 +76,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     }
 class MyViewHolder extends RecyclerView.ViewHolder {
         ImageView recImage;
-        TextView recNombre, recApellido, recPareja;
+        TextView recNombre, recApellido, recEdad;
         CardView recCard;
 
         public MyViewHolder(@NonNull View itemView) {
@@ -76,7 +85,7 @@ class MyViewHolder extends RecyclerView.ViewHolder {
             recCard = itemView.findViewById(R.id.recCard);
             recNombre = itemView.findViewById(R.id.recNombre);
             recApellido = itemView.findViewById(R.id.recApellido);
-            recPareja = itemView.findViewById(R.id.recPareja);
+            recEdad = itemView.findViewById(R.id.recEdad);
         }
     }
 }

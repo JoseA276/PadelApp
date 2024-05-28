@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.bumptech.glide.Glide;
 
 public class DetailActivity extends AppCompatActivity {
-    TextView detailNombre, detailApellido, detailAltura, detailNacimiento, detailPosicion, detailPareja;
+    TextView detailNombre, detailApellido, detailEdad;
     ImageView detailImage;
     String imageUrl = "";
 
@@ -23,20 +23,15 @@ public class DetailActivity extends AppCompatActivity {
 
         detailNombre = findViewById(R.id.detailNombre);
         detailApellido = findViewById(R.id.detailApellido);
-        detailAltura = findViewById(R.id.detailAltura);
-        detailNacimiento = findViewById(R.id.detailNacimiento);
-        detailPosicion = findViewById(R.id.detailPosicion);
-        detailPareja = findViewById(R.id.detailPareja);
+        detailEdad = findViewById(R.id.detailEdad);
+
         detailImage = findViewById(R.id.detailImagen);
 
         Intent intent = getIntent();
         if (intent != null) {
             detailNombre.setText(intent.getStringExtra("Nombre"));
             detailApellido.setText(intent.getStringExtra("Apellido"));
-            detailAltura.setText(intent.getStringExtra("Altura"));
-            detailNacimiento.setText(intent.getStringExtra("Nacimiento"));
-            detailPosicion.setText(intent.getStringExtra("Posicion"));
-            detailPareja.setText(intent.getStringExtra("Pareja"));
+            detailEdad.setText(intent.getStringExtra("Edad"));
             imageUrl = intent.getStringExtra("Image");
 
             Glide.with(this).load(imageUrl).into(detailImage);

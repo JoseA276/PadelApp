@@ -37,7 +37,7 @@ public class UploadActivity extends AppCompatActivity {
 
     ImageView subirImagen;
     Button guardarBoton;
-    EditText nombre, apellido, altura, nacimiento,posicion,pareja;
+    EditText nombre, apellido, edad;
     String imageJugador;
     Uri uri;
 
@@ -49,10 +49,7 @@ public class UploadActivity extends AppCompatActivity {
         subirImagen = findViewById(R.id.subirImagen);
         nombre = findViewById(R.id.nombre);
         apellido = findViewById(R.id.apellido);
-        altura = findViewById(R.id.altura);
-        nacimiento = findViewById(R.id.nacimiento);
-        posicion = findViewById(R.id.posicion);
-        pareja = findViewById(R.id.pareja);
+        edad = findViewById(R.id.edad);
         guardarBoton = findViewById(R.id.guardarButton);
 
         ActivityResultLauncher<Intent> activityResultLauncher = registerForActivityResult(
@@ -126,12 +123,9 @@ public class UploadActivity extends AppCompatActivity {
 
         String nombreJugador = nombre.getText().toString();
         String apellidoJugador = apellido.getText().toString();
-        double alturaJugador = Double.parseDouble(altura.getText().toString());
-        String nacimientoJugador = nacimiento.getText().toString();
-        String posicionJugador = posicion.getText().toString();
-        String parejaJugador = pareja.getText().toString();
+        int edadJugador = Integer.parseInt(edad.getText().toString());
 
-        Player player = new Player(nombreJugador, apellidoJugador, alturaJugador, nacimientoJugador, posicionJugador, parejaJugador, imageJugador);
+        Player player = new Player(nombreJugador, apellidoJugador, edadJugador, imageJugador);
 
         //We are changing the child from title to currentDate,
         // because we will be updating title as well and it may affect child value.

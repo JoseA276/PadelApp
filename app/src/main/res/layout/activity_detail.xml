@@ -62,43 +62,14 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:id="@+id/detailAltura"
+                android:id="@+id/detailEdad"
                 android:background="@drawable/lavender_border"
                 android:layout_marginTop="20dp"
                 android:padding="16dp"
-                android:hint="@string/altura"
+                android:hint="@string/edad"
                 android:gravity="start|center_vertical"
                 android:textColor="@color/lavender"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:id="@+id/detailNacimiento"
-                android:background="@drawable/lavender_border"
-                android:layout_marginTop="20dp"
-                android:padding="16dp"
-                android:hint="@string/naciemiento"
-                android:gravity="start|center_vertical"
-                android:textColor="@color/lavender"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:id="@+id/detailPosicion"
-                android:background="@drawable/lavender_border"
-                android:layout_marginTop="20dp"
-                android:padding="16dp"
-                android:hint="@string/posicion"
-                android:gravity="start|center_vertical"
-                android:textColor="@color/lavender"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:id="@+id/detailPareja"
-                android:background="@drawable/lavender_border"
-                android:layout_marginTop="20dp"
-                android:padding="16dp"
-                android:hint="@string/nombre_pareja"
-                android:gravity="start|center_vertical"
-                android:textColor="@color/lavender"/>
+
 
         </LinearLayout>
 
