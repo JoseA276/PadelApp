@@ -7,7 +7,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
-import androidx.cardview.widget.CardView;
+
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,8 +17,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+
 import com.example.padelapp.Player.Player;
-import com.example.padelapp.databinding.FragmentRankingBinding;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -30,19 +31,23 @@ import java.util.List;
 
 
 public class RankingFragment extends Fragment {
-    FragmentRankingBinding binding;
     FloatingActionButton fab;
     DatabaseReference databaseReference;
     ValueEventListener eventListener;
     RecyclerView recyclerView;
     List<Player> playerList;
-
+    SearchView searchView;
+    MyAdapter adapter;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_ranking, container, false);
             fab = view.findViewById(R.id.fab);
             recyclerView = view.findViewById(R.id.recyclerView);
+
+
+            searchView = view.findViewById(R.id.search);
+            searchView.clearFocus();
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(),1);
         recyclerView.setLayoutManager(gridLayoutManager);
 
@@ -53,7 +58,7 @@ public class RankingFragment extends Fragment {
         dialog.show();
 
         playerList = new ArrayList<>();
-        MyAdapter adapter = new MyAdapter(getActivity(),playerList);
+        adapter = new MyAdapter(getActivity(),playerList);
         recyclerView.setAdapter(adapter);
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Android Tutorials");
@@ -77,6 +82,18 @@ public class RankingFragment extends Fragment {
                 dialog.dismiss();
             }
         });
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                searchList(newText);
+                return true;
+            }
+        });
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,5 +103,14 @@ public class RankingFragment extends Fragment {
             }
         });
         return view;
+    }
+    public void searchList(String text){
+        ArrayList<Player> searchList = new ArrayList<>();
+        for (Player player: playerList){
+            if (player.getNombre().toLowerCase().contains(text.toLowerCase())){
+                searchList.add(player);
+            }
+        }
+        adapter.searchPlayerList(searchList);
     }
 }

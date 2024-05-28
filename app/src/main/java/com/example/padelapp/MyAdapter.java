@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.padelapp.Player.Player;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
@@ -39,10 +40,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         holder.recNombre.setText(playerList.get(position).getNombre());
         holder.recApellido.setText(playerList.get(position).getApellido());
         holder.recPareja.setText(playerList.get(position).getPareja());
+
         holder.recCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, DetailFragment.class);
+                Intent intent = new Intent(context, DetailActivity.class);
                 intent.putExtra("Image", playerList.get(holder.getAdapterPosition()).getImagePlayer());
                 intent.putExtra("Apellido", playerList.get(holder.getAdapterPosition()).getApellido());
                 intent.putExtra("Nombre", playerList.get(holder.getAdapterPosition()).getNombre());
@@ -58,6 +60,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     @Override
     public int getItemCount() {
         return playerList.size();
+    }
+    public void searchPlayerList(ArrayList<Player> searchPlayerList){
+        playerList = searchPlayerList;
+        notifyDataSetChanged();
     }
 class MyViewHolder extends RecyclerView.ViewHolder {
         ImageView recImage;

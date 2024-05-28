@@ -30,11 +30,6 @@
         android:name="com.example.padelapp.UploadActivity"
         android:label="activity_upload"
         tools:layout="@layout/activity_upload" />
-    <activity
-        android:id="@+id/rankingActivity"
-        android:name="com.example.padelapp.RankingActivity"
-        android:label="activity_ranking"
-        tools:layout="@layout/activity_ranking" />
     <fragment
         android:id="@+id/rankingFragment"
         android:name="com.example.padelapp.RankingFragment"
@@ -50,9 +45,9 @@
         android:name="com.example.padelapp.RegisterActivity"
         android:label="activity_register"
         tools:layout="@layout/activity_register" />
-    <fragment
-        android:id="@+id/detailFragment"
-        android:name="com.example.padelapp.DetailFragment"
-        android:label="fragment_detail"
-        tools:layout="@layout/fragment_detail" />
+    <activity
+        android:id="@+id/detailActivity"
+        android:name="com.example.padelapp.DetailActivity"
+        android:label="activity_detail"
+        tools:layout="@layout/activity_detail" />
 </navigation>
