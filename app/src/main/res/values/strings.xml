@@ -21,8 +21,12 @@
     <string name="altura">Altura</string>
     <string name="apellido">Apellido</string>
     <string name="nombre">Nombre</string>
-    <string name="guardarJugador">Guardar Jugador</string>
+    <string name="crearNuevoJugador">Crear un Jugador</string>
     <string name="detalle_jugador">Detalle Jugador</string>
     <string name="add_item">Add Item</string>
     <string name="edad">Edad</string>
+    <string name="crearNuevoTorneo">Crear un Torneo</string>
+    <string name="nombreTorneo">Nombre del Torneo</string>
+    <string name="localidadTorneo">Localidad del Torneo</string>
+    <string name="fechaTorneo">Fecha del Torneo</string>
 </resources>

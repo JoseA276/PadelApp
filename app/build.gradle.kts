@@ -49,6 +49,7 @@ dependencies {
     implementation(libs.firebase.storage)
     implementation(libs.glide)
     annotationProcessor(libs.glideCompiler)
+    implementation(libs.tournamentbracketlib)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)

@@ -17,6 +17,7 @@ firebaseFirestore = "25.0.0"
 firebaseStorage = "21.0.0"
 glide = "4.15.1"
 glideCompiler = "4.15.1"
+tournamentbracketlib = "1.0.4"
 
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -35,6 +36,7 @@ firebase-firestore = { group = "com.google.firebase", name = "firebase-firestore
 firebase-storage = { group = "com.google.firebase", name = "firebase-storage", version.ref = "firebaseStorage" }
 glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
 glideCompiler = { module = "com.github.bumptech.glide:compiler", version.ref = "glideCompiler" }
+tournamentbracketlib = { group = "com.github.emil-ep", name = "TournamentBracketLib", version.ref = "tournamentbracketlib" }
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 googleGmsGoogleServices = { id = "com.google.gms.google-services", version.ref = "googleGmsGoogleServices" }

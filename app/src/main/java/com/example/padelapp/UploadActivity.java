@@ -91,7 +91,7 @@ public class UploadActivity extends AppCompatActivity {
             return;
         }
 
-        StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("Android Images")
+        StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("Imagenes Jugadores")
                 .child(uri.getLastPathSegment());
 
         AlertDialog.Builder builder = new AlertDialog.Builder(UploadActivity.this);
@@ -132,7 +132,7 @@ public class UploadActivity extends AppCompatActivity {
 
         String currentDate = DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
 
-        FirebaseDatabase.getInstance().getReference("Android Tutorials").child(currentDate)
+        FirebaseDatabase.getInstance().getReference("Jugadores").child(currentDate)
                 .setValue(player).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {

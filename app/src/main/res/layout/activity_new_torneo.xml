@@ -26,49 +26,43 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/crearNuevoJugador"
+                android:text="@string/crearNuevoTorneo"
                 android:textSize="30sp"
                 android:textAlignment="center"
                 android:textColor="@color/lavender"/>
 
-            <ImageView
-                android:id="@+id/subirImagen"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginTop="10dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/uploadimg" />
-
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:id="@+id/nombre"
+                android:id="@+id/torneoNombre"
                 android:background="@drawable/lavender_border"
                 android:layout_marginTop="20dp"
                 android:padding="16dp"
-                android:hint="@string/nombre"
+                android:hint="@string/nombreTorneo"
                 android:gravity="start|center_vertical"
                 android:textColor="@color/lavender"/>
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:id="@+id/apellido"
+                android:id="@+id/localidadTorneo"
                 android:background="@drawable/lavender_border"
                 android:layout_marginTop="20dp"
                 android:padding="16dp"
-                android:hint="@string/apellido"
+                android:hint="@string/localidadTorneo"
                 android:gravity="start|center_vertical"
-                android:textColor="@color/lavender"/>
+                android:textColor="@color/lavender" />
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:id="@+id/edad"
+                android:id="@+id/fechaTorneo"
                 android:background="@drawable/lavender_border"
                 android:layout_marginTop="20dp"
                 android:padding="16dp"
-                android:hint="@string/edad"
+                android:hint="@string/fechaTorneo"
                 android:gravity="start|center_vertical"
-                android:textColor="@color/lavender"/>
+                android:textColor="@color/lavender"
+                android:focusable="false"
+                android:inputType="date"/>
 
             <Button
                 android:layout_width="match_parent"

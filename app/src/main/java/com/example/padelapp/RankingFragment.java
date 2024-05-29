@@ -61,7 +61,7 @@ public class RankingFragment extends Fragment {
         adapter = new MyAdapter(getActivity(),playerList);
         recyclerView.setAdapter(adapter);
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("Android Tutorials");
+        databaseReference = FirebaseDatabase.getInstance().getReference("Jugadores");
         dialog.show();
 
 
