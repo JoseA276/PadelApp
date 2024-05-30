@@ -15,10 +15,12 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.padelapp.Player.Player;
 
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -78,6 +80,10 @@ public class MyAdapterTorneos extends RecyclerView.Adapter<MyViewHolder> {
     @Override
     public int getItemCount() {
         return torneoList.size();
+    }
+    public void searchTorneoList(ArrayList<Torneo> searchTorneoList){
+        torneoList = searchTorneoList;
+        notifyDataSetChanged();
     }
 }
 class MyViewHolder extends RecyclerView.ViewHolder {

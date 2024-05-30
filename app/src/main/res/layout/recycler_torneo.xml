@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/recCardTorneo"
-    android:layout_marginStart="12dp"
-    android:layout_marginEnd="12dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:layout_marginHorizontal="10dp"
     android:layout_marginVertical="10dp"
     app:cardCornerRadius="20dp"
@@ -13,41 +11,40 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:padding="16dp">
 
         <TextView
-            android:layout_width="120dp"
-            android:layout_height="30dp"
             android:id="@+id/recNombreTorneo"
-            android:text="Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:text="Nombre del Torneo"
             android:textColor="@color/lavender"
             android:textSize="20sp"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="20dp" />
+            android:textStyle="bold" />
 
         <TextView
-            android:layout_width="120dp"
-            android:layout_height="40dp"
             android:id="@+id/recLocalidadTorneo"
-            android:text="@string/localidadTorneo"
-            android:layout_toEndOf="@id/recNombreTorneo"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="90dp"
-            android:textAlignment="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/recNombreTorneo"
+            android:layout_alignStart="@id/recNombreTorneo"
+            android:layout_marginTop="8dp"
+            android:text="Localidad"
             android:textColor="@color/lavender"
-            android:textSize="16sp"/>
+            android:textSize="16sp" />
 
         <TextView
-            android:layout_width="140dp"
-            android:layout_height="wrap_content"
             android:id="@+id/recFecha"
-            android:text="@string/fechaTorneo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/recLocalidadTorneo"
+            android:layout_alignStart="@id/recLocalidadTorneo"
+            android:layout_marginTop="8dp"
+            android:text="Fecha"
             android:textColor="@color/lavender"
-            android:textSize="14sp"
-            android:layout_below="@id/recNombreTorneo"
-            android:layout_marginStart="20dp"
-            android:maxLines="1"
-            android:layout_marginBottom="12dp"/>
+            android:textSize="14sp" />
 
     </RelativeLayout>
 

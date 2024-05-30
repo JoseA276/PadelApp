@@ -5,75 +5,92 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CalendarView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.padelapp.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 public class CalendarFragment extends Fragment {
 
-    CalendarView calendarView;
-    Calendar calendar;
+    private CalendarView calendarView;
+    private RecyclerView recyclerView;
+    private MyAdapterTorneos adapterTorneos;
+    private List<Torneo> torneoList;
 
+    @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_calendar, container, false);
 
-        // Establecer Locale para que comience la semana en lunes
-        Locale.setDefault(new Locale("es", "ES")); // Ejemplo para España
         calendarView = view.findViewById(R.id.calendarView);
-        // Inicializar calendario
-        calendar = Calendar.getInstance();
+        recyclerView = view.findViewById(R.id.recyclerViewTorneos);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        torneoList = new ArrayList<>();
+        adapterTorneos = new MyAdapterTorneos(getContext(), torneoList);
+        recyclerView.setAdapter(adapterTorneos);
 
-        // Establecer la fecha actual
-        setDateToToday();
-
-        // Mostrar fecha actual en un Toast
-        getDate();
-
-        // Establecer listener de cambio de fecha
-        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-            @Override
-            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                // Nota: el mes es 0-basado, por lo que necesitamos agregar 1
-                Toast.makeText(getActivity(), dayOfMonth + "/" + (month + 1) + "/" + year, Toast.LENGTH_SHORT).show();
-            }
+        calendarView.setOnDateChangeListener((view1, year, month, dayOfMonth) -> {
+            String selectedDate = String.format(Locale.getDefault(), "%02d/%02d/%04d", dayOfMonth, month + 1, year);
+            fetchTorneosForDate(selectedDate);
         });
 
         return view;
     }
 
-    public void getDate() {
-        // Obtener la fecha actual del CalendarView
-        long date = calendarView.getDate();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yy", Locale.getDefault());
-        calendar.setTimeInMillis(date);
-        String selected_date = simpleDateFormat.format(calendar.getTime());
-        // Mostrar la fecha seleccionada en un Toast
-        Toast.makeText(getActivity(), selected_date, Toast.LENGTH_SHORT).show();
-    }
+    private void fetchTorneosForDate(String date) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+        try {
+            Date selectedDate = dateFormat.parse(date);
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(selectedDate);
+            int year = calendar.get(Calendar.YEAR) - 1900;
+            int month = calendar.get(Calendar.MONTH);
+            int day = calendar.get(Calendar.DAY_OF_MONTH);
 
-    public void setDate(int day, int month, int year) {
-        // Establecer la fecha en el objeto Calendar
-        calendar.set(Calendar.YEAR, year);
-        calendar.set(Calendar.MONTH, month - 1); // El mes es 0-basado
-        calendar.set(Calendar.DAY_OF_MONTH, day);
-        // Establecer la fecha en el CalendarView
-        long milli = calendar.getTimeInMillis();
-        calendarView.setDate(milli);
-    }
+            FirebaseDatabase.getInstance().getReference("Torneos")
+                    .orderByChild("fechaTorneo/time") // Ordenar por el campo `time`
+                    .startAt(calendar.getTimeInMillis())
+                    .endAt(calendar.getTimeInMillis() + 86400000) // 86400000 ms en un día
+                    .addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            torneoList.clear();
+                            for (DataSnapshot torneoSnapshot : snapshot.getChildren()) {
+                                Torneo torneo = torneoSnapshot.getValue(Torneo.class);
+                                if (torneo != null) {
+                                    torneoList.add(torneo);
+                                }
+                            }
+                            if (torneoList.isEmpty()) {
+                                Toast.makeText(getContext(), "No hay torneos para la fecha seleccionada", Toast.LENGTH_SHORT).show();
+                            }
+                            adapterTorneos.notifyDataSetChanged();
+                        }
 
-    public void setDateToToday() {
-        // Obtener la fecha actual del sistema
-        Calendar today = Calendar.getInstance();
-        // Establecer la fecha actual en el CalendarView
-        calendarView.setDate(today.getTimeInMillis());
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+                            Toast.makeText(getContext(), "Error al cargar los torneos", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(getContext(), "Error al parsear la fecha seleccionada", Toast.LENGTH_SHORT).show();
+        }
     }
 }

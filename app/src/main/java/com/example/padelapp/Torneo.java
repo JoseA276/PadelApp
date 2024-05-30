@@ -1,16 +1,29 @@
 package com.example.padelapp;
 
+import com.example.padelapp.Player.Player;
+
 import java.util.Date;
+import java.util.List;
 
 public class Torneo {
     private String nombreTorneo, localidadTorneo;
     private Date fechaTorneo;
+    List<Player> playerList;
     public Torneo(){}
 
-    public Torneo(String nombreTorneo, String localidadTorneo, Date fechaTorneo) {
+    public Torneo(String nombreTorneo, String localidadTorneo, Date fechaTorneo, List<Player> playerList) {
         this.nombreTorneo = nombreTorneo;
         this.localidadTorneo = localidadTorneo;
         this.fechaTorneo = fechaTorneo;
+        this.playerList = playerList;
+    }
+
+    public List<Player> getPlayerList() {
+        return playerList;
+    }
+
+    public void setPlayerList(List<Player> playerList) {
+        this.playerList = playerList;
     }
 
     public String getNombreTorneo() {

@@ -26,26 +26,26 @@ public class BracketTorneosActivity extends AppCompatActivity {
 
 
         // Definir los competidores para cuartos de final
-        CompetitorData brazil = new CompetitorData("Brazil", "1");
-        CompetitorData england = new CompetitorData("England", "2");
-        CompetitorData argentina = new CompetitorData("Argentina", "1");
-        CompetitorData russia = new CompetitorData("Russia", "2");
-        CompetitorData brazil2 = new CompetitorData("Brazil2", "2");
-        CompetitorData england2 = new CompetitorData("England2", "1");
-        CompetitorData argentina2 = new CompetitorData("Argentina2", "2");
-        CompetitorData russia2 = new CompetitorData("Russia2", "1");
+        CompetitorData Jose = new CompetitorData("Jose", "2");
+        CompetitorData Frank = new CompetitorData("Frank", "1");
+        CompetitorData Yassin = new CompetitorData("Yassin", "1");
+        CompetitorData Said = new CompetitorData("Said", "2");
+        CompetitorData Ivan = new CompetitorData("Ivan", "2");
+        CompetitorData Sara = new CompetitorData("Sara", "1");
+        CompetitorData Raul = new CompetitorData("Raul", "2");
+        CompetitorData Dani = new CompetitorData("Dani", "1");
         // Definir los partidos de cuartos de final
-        MatchData match1QuarterFinal = new MatchData(brazil, england);
-        MatchData match2QuarterFinal = new MatchData(argentina, russia);
-        MatchData match3QuarterFinal = new MatchData(brazil2, england2);
-        MatchData match4QuarterFinal = new MatchData(argentina2, russia2);
+        MatchData match1QuarterFinal = new MatchData(Jose, Frank);
+        MatchData match2QuarterFinal = new MatchData(Yassin, Said);
+        MatchData match3QuarterFinal = new MatchData(Sara, Ivan);
+        MatchData match4QuarterFinal = new MatchData(Raul, Dani);
 
         // Definir los partidos de semifinal
-        MatchData match1SemiFinal = new MatchData(new CompetitorData("england", "0"), new CompetitorData("Brazil2", "0"));
-        MatchData match2SemiFinal = new MatchData(new CompetitorData("Russia", "2"), new CompetitorData("Argentina2", "2"));
+        MatchData match1SemiFinal = new MatchData(new CompetitorData("Jose", "2"), new CompetitorData("Said", "1"));
+        MatchData match2SemiFinal = new MatchData(new CompetitorData("Ivan", "2"), new CompetitorData("Raul", "1"));
 
         // Definir el partido de final
-        MatchData finalMatch = new MatchData(new CompetitorData("England", "1"), new CompetitorData("Argentina2", "2"));
+        MatchData finalMatch = new MatchData(new CompetitorData("Ivan", "1"), new CompetitorData("Jose", "2"));
 
         // Configurar los brackets
         ColomnData quarterFinalColomn = new ColomnData(Arrays.asList(match1QuarterFinal, match2QuarterFinal, match3QuarterFinal, match4QuarterFinal));

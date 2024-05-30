@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.padelapp.Player.Player;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -34,6 +36,8 @@ public class TorneosFragment extends Fragment {
     RecyclerView recyclerView;
     List<Torneo> torneoList;
     MyAdapterTorneos myAdapterTorneos;
+    SearchView searchView;
+
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -43,6 +47,8 @@ public class TorneosFragment extends Fragment {
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 1);
         recyclerView.setLayoutManager(gridLayoutManager);
+        searchView = view.findViewById(R.id.search);
+        searchView.clearFocus();
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setCancelable(false);
@@ -74,6 +80,18 @@ public class TorneosFragment extends Fragment {
             dialog.dismiss();
             }
         });
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                searchList(newText);
+                return true;
+            }
+        });
 
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -83,5 +101,14 @@ public class TorneosFragment extends Fragment {
                 }
             });
         return view;
+    }
+    public void searchList(String text){
+        ArrayList<Torneo> searchList = new ArrayList<>();
+        for (Torneo torneo: torneoList){
+            if (torneo.getNombreTorneo().toLowerCase().contains(text.toLowerCase())){
+                searchList.add(torneo);
+            }
+        }
+        myAdapterTorneos.searchTorneoList(searchList);
     }
 }
