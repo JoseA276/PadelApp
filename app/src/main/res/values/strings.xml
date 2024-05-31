@@ -29,4 +29,5 @@
     <string name="nombreTorneo">Nombre del Torneo</string>
     <string name="localidadTorneo">Localidad del Torneo</string>
     <string name="fechaTorneo">Fecha del Torneo</string>
+    <string name="logo_desc">Logo de la aplicación</string>
 </resources>

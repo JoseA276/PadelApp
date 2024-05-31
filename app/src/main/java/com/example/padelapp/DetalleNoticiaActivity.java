@@ -36,7 +36,7 @@ public class DetalleNoticiaActivity extends AppCompatActivity {
 
         Glide.with(this)
                 .load(imagenUrl)
-                .placeholder(R.drawable.prueba)  // Imagen de marcador de posición
+                .placeholder(R.drawable.noticias)  // Imagen de marcador de posición
                 .into(imagenImageView);
     }
 }

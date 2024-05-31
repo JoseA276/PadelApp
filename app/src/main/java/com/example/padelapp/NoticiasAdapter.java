@@ -40,7 +40,7 @@ public class NoticiasAdapter extends RecyclerView.Adapter<NoticiasAdapter.Notici
         // Load image with Glide
         Glide.with(context)
                 .load(noticia.getUrlImagen())
-                .placeholder(R.drawable.prueba)
+                .placeholder(R.drawable.noticias)
 
                 .into(holder.imagenImageView);
 
