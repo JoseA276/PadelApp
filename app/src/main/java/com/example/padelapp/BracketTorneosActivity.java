@@ -26,14 +26,14 @@ public class BracketTorneosActivity extends AppCompatActivity {
 
 
         // Definir los competidores para cuartos de final
-        CompetitorData Jose = new CompetitorData("Jose", "2");
-        CompetitorData Frank = new CompetitorData("Frank", "1");
-        CompetitorData Yassin = new CompetitorData("Yassin", "1");
-        CompetitorData Said = new CompetitorData("Said", "2");
-        CompetitorData Ivan = new CompetitorData("Ivan", "2");
-        CompetitorData Sara = new CompetitorData("Sara", "1");
-        CompetitorData Raul = new CompetitorData("Raul", "2");
-        CompetitorData Dani = new CompetitorData("Dani", "1");
+        CompetitorData Jose = new CompetitorData("Jose/Pedro", "2");
+        CompetitorData Frank = new CompetitorData("Frank/Pablo", "1");
+        CompetitorData Yassin = new CompetitorData("Yassin/Abde", "1");
+        CompetitorData Said = new CompetitorData("Said/Arman", "2");
+        CompetitorData Ivan = new CompetitorData("Ivan/Biel", "2");
+        CompetitorData Sara = new CompetitorData("Sara/Rabab", "1");
+        CompetitorData Raul = new CompetitorData("Raul/Juanan", "2");
+        CompetitorData Dani = new CompetitorData("Dani/Sergio", "1");
         // Definir los partidos de cuartos de final
         MatchData match1QuarterFinal = new MatchData(Jose, Frank);
         MatchData match2QuarterFinal = new MatchData(Yassin, Said);
@@ -41,11 +41,11 @@ public class BracketTorneosActivity extends AppCompatActivity {
         MatchData match4QuarterFinal = new MatchData(Raul, Dani);
 
         // Definir los partidos de semifinal
-        MatchData match1SemiFinal = new MatchData(new CompetitorData("Jose", "2"), new CompetitorData("Said", "1"));
-        MatchData match2SemiFinal = new MatchData(new CompetitorData("Ivan", "2"), new CompetitorData("Raul", "1"));
+        MatchData match1SemiFinal = new MatchData(new CompetitorData("Jose/Pedro", "2"), new CompetitorData("Said/Arman", "1"));
+        MatchData match2SemiFinal = new MatchData(new CompetitorData("Ivan/Biel", "2"), new CompetitorData("Raul/Juanan", "1"));
 
         // Definir el partido de final
-        MatchData finalMatch = new MatchData(new CompetitorData("Ivan", "1"), new CompetitorData("Jose", "2"));
+        MatchData finalMatch = new MatchData(new CompetitorData("Ivan/Biel", "1"), new CompetitorData("Jose/Pedro", "2"));
 
         // Configurar los brackets
         ColomnData quarterFinalColomn = new ColomnData(Arrays.asList(match1QuarterFinal, match2QuarterFinal, match3QuarterFinal, match4QuarterFinal));

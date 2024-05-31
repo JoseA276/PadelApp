@@ -93,4 +93,5 @@ public class CalendarFragment extends Fragment {
             Toast.makeText(getContext(), "Error al parsear la fecha seleccionada", Toast.LENGTH_SHORT).show();
         }
     }
+
 }
