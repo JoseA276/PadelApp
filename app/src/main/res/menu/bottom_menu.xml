@@ -17,7 +17,7 @@
     <item
         android:id="@+id/rankingFragment"
         android:icon="@drawable/baseline_checklist"
-        android:title="@string/ranking"/>
+        android:title="@string/jugadores"/>
 
 
 
